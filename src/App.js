@@ -16,7 +16,6 @@ const App = () => {
     const { artista, cancion } = busqueda;
     const url = `https://api.lyrics.ovh/v1/${artista}/${cancion}`;
     const resultado = await axios(url);
-    console.log(resultado);
 
     setArtista(artista);
 
@@ -29,7 +28,6 @@ const App = () => {
       if (artista) {
         const url = `https://theaudiodb.com/api/v1/json/2/search.php?s=${artista}`;
         const resultado = await axios(url);
-
 
         setInfo(resultado.data.artists[0]);
       }

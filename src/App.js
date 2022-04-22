@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import Formulario from "./componentes/Fomulario";
 
 import axios from 'axios';
@@ -23,24 +23,25 @@ const App = () => {
     setLetra(resultado.data.lyrics);
   }
 
-  useEffect(()=>{
-    consultarApiInfo();
-  },[artista])
+  useEffect(() => {
 
-  const consultarApiInfo = async () => {
-    if(artista){
-      const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artista}`;
-    const resultado = await axios(url);
-    //console.log(resultado);
+    const consultarApiInfo = async () => {
+      if (artista) {
+        const url = `https://theaudiodb.com/api/v1/json/2/search.php?s=${artista}`;
+        const resultado = await axios(url);
 
-    setInfo(resultado.data.artists[0]);
+
+        setInfo(resultado.data.artists[0]);
+      }
+
     }
-    
-  }
+    consultarApiInfo();
+  }, [artista])
+
 
 
   return (
-    <Fragment>
+    <>
       <Formulario
         consultarApiLetra={consultarApiLetra}
       />
@@ -48,7 +49,7 @@ const App = () => {
         <div className="row">
           <div className="col-md-6">
             <Artista
-            info={info}
+              info={info}
             />
           </div>
           <div className="col-md-6">
@@ -58,7 +59,7 @@ const App = () => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 

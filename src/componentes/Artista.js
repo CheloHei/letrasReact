@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const Artista = ({ info }) => {
     if (Object.keys(info).length === 0) return null;
 
     return (
-        <Fragment>
+        <>
             <div className="card border-light">
                 <div className="card-header bg-primary text-light font-weight-bold">
                     Info del Artista
@@ -15,10 +15,10 @@ const Artista = ({ info }) => {
                     <h2 className="card-text text-center">Biografia</h2>
                     <p className="card-text">{info.strBiographyES}</p>
                     <div className="card-text">
-                        <a href={`http://${info.strFacebook}`} target="_blank" rel="noopener noreferrrer">
+                        <a href={`http://${info.strFacebook}`} target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-facebook"></i>
                         </a>
-                        <a href={`http://${info.strTwitter}`} target="_blank" rel="noopener noreferrrer">
+                        <a href={`http://${info.strTwitter}`} target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-twitter"></i>
                         </a>
 
@@ -26,7 +26,7 @@ const Artista = ({ info }) => {
                     
                 </div>
             </div>
-        </Fragment>
+        </>
     );
 };
 
